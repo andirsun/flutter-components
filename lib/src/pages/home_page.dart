@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
       initialData: [],
       builder:(context, AsyncSnapshot<List<dynamic>> snapshot){
         
-        print(snapshot.data);
+        //print(snapshot.data);
 
         return ListView(
           children:_listaItems(snapshot.data,context),
