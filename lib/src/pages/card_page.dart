@@ -10,7 +10,9 @@ class CardPage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[
-          _cardTipo1()
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2()
         ],
       ),
     );
@@ -41,6 +43,26 @@ class CardPage extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Widget _cardTipo2() {
+    return Card(
+      child:Column(
+        children: <Widget>[
+          FadeInImage(
+            image: NetworkImage("https://i.redd.it/1w6s6g3613f31.jpg"),
+            placeholder: AssetImage("assets/barber2.gif"),
+            fadeInDuration: Duration(milliseconds: 100),
+            height: 350,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Text("nNO se que poner")
+          )
+        ],
+      )
     );
   }
 }
