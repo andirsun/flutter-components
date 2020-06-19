@@ -1,22 +1,23 @@
-import 'package:flutter/services.dart' show rootBundle;
-
+// Flutter dependencies
+import 'package:flutter/services.dart' show rootBundle; //used to read static files
+// Dart dependencies
 import 'dart:convert';
 
 
 class _MenuProvider{
-  List<dynamic> opciones =[];
-
+  // Properties
+  List<dynamic> options =[];
+  // Methods
   _MenuProvider(){
     cargarData();
   }
   //un future va a resolver va a retornar la informacion dentro de los <>
   Future<List<dynamic>>cargarData() async{
-    final resp= await rootBundle.loadString("data/menu_opts.json");//read static resources in de directory
-      
-    Map dataMap = json.decode(resp);//to handle the data of json in a object
-    opciones = dataMap['rutas'];//accedo a ese paramtetro de l json
-  
-    return opciones;
+    //read static resources in de directory
+    final resp = await rootBundle.loadString("data/menu_opts.json");
+    Map dataMap = json.decode(resp);
+    options = dataMap['rutas'];//accedo a ese paramtetro de l json
+    return options;
   }
 }
 
