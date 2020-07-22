@@ -1,45 +1,42 @@
-import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/providers/menu_provider.dart';
 import 'package:componentes/src/utils/icono_string_util.dart';
 import 'package:flutter/material.dart'; 
+import 'package:icons_helper/icons_helper.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Componentes'),
-      ),
-      body:_lista(),
+        title: Text('Components'),
+      ), 
+      body:_createList(),
     );
   }
       
-  Widget _lista() {
-
+  Widget _createList() {
+    // Future builder allow to wait a fetch data befsore create a widget without data
     return FutureBuilder(
-      future: menuProvider.cargarData(),
+      // future is the method to wait until build the widget
+      future: menuProvider.loadData(),
       initialData: [],
+      //exceute after future finish
       builder:(context, AsyncSnapshot<List<dynamic>> snapshot){
-        
-        //print(snapshot.data);
-
         return ListView(
-          children:_listaItems(snapshot.data,context),
+          children:_createListItems(snapshot.data,context),
         );
       },
     );
     
-    //print(menuProvider.opciones);//need to import menu_provider
-    
   }
 
-  List<Widget> _listaItems(List<dynamic> data,BuildContext context) {
+  List<Widget> _createListItems(List<dynamic> data,BuildContext context) {
     final List<Widget> opciones = [];
     data.forEach((opt){
       final widgetTemp = ListTile(
         title: Text(opt['texto']),
-        leading: getIcon(opt["icon"]),//va antes del texto en el list
-        trailing: Icon(Icons.keyboard_arrow_right),
+        leading: Icon(getIconUsingPrefix(name: opt["icon"]),color: Colors.blue,),//va antes del texto en el list
+        trailing: Icon(getIconUsingPrefix(name: "keyboard_arrow_right")),
         onTap: (){
           
           Navigator.pushNamed(context, opt["ruta"]);
@@ -56,7 +53,7 @@ class HomePage extends StatelessWidget {
         },
 
       );
-
+      // push the item to the array of widgets
       opciones..add(widgetTemp)
               ..add(Divider());
     }); 

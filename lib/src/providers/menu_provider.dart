@@ -3,22 +3,24 @@ import 'package:flutter/services.dart' show rootBundle; //used to read static fi
 // Dart dependencies
 import 'dart:convert';
 
-
+// Private class with _NameClass
 class _MenuProvider{
   // Properties
   List<dynamic> options =[];
-  // Methods
+  // Constructor
   _MenuProvider(){
-    cargarData();
+    loadData();
   }
-  //un future va a resolver va a retornar la informacion dentro de los <>
-  Future<List<dynamic>>cargarData() async{
+  //Future is like :Promise<>
+  Future<List<dynamic>>loadData() async{
     //read static resources in de directory
     final resp = await rootBundle.loadString("data/menu_opts.json");
     Map dataMap = json.decode(resp);
     options = dataMap['rutas'];//accedo a ese paramtetro de l json
     return options;
+    
+    
   }
 }
-
+// Unique Instace of the class, if need to import a instance in a file just paste menuProvider
 final menuProvider = new _MenuProvider();
