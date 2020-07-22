@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
+
 class HomePageTemp extends StatelessWidget {
-  final opciones = ["Uno","Dos","Tres"];//debe ser una propiedad final por que estoy dentro de un StatlesWidget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8,14 +9,18 @@ class HomePageTemp extends StatelessWidget {
         title: Text('Componenetes Temp'),
       ),
       body:ListView(
-        children: _crearItems()//retorno una lista de items 
+        //retorno una lista de items
+        children: _crearItems()
       ),
     );
   }
 
 
   List<Widget> _crearItems(){ //opcion 2 para una funcion que retorne una lista widgets
-    return opciones.map((item){
+    final options = ["One","Two","Three"];//debe ser una propiedad final por que estoy dentro de un StatlesWidget
+    //Return a widget for every element in options array
+    return options.map((item){
+      // wrap with colum to put a divider betwen elements
       return Column(
         children: <Widget>[
           ListTile(
@@ -28,21 +33,6 @@ class HomePageTemp extends StatelessWidget {
           Divider()
         ],
       );
-    }).toList();//lo vuelvo lista para poder retornarlo y no me de error
+    }).toList();
   }
-  /*
-  List<Widget> _crearItems(){ //opcin 1 
-
-    List<Widget> lista = new List<Widget>();
-    for (String opt in opciones){
-      final tempWidget = ListTile(
-        title : Text(opt) 
-      );
-
-      lista..add(tempWidget) //meto cada widget del listview en la lista 
-            ..add(Divider()); //meto el divider
-      
-    }
-    return lista;
-  }*/
 }
