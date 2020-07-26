@@ -44,9 +44,7 @@ class HomePage extends StatelessWidget {
           /////Asi se hace una navegacion normal a una pagina
           /*
           final route = MaterialPageRoute(
-            builder: (context){
-              return AlertPage();
-            }
+            builder: (context) => AlertPage();
           );
           Navigator.push(context, route);
           */

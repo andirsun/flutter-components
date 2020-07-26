@@ -10,9 +10,9 @@ import 'package:componentes/src/pages/home_page.dart';
 Map<String, WidgetBuilder> getApplicationRoutes(){
   // returns ROUTE, Widget
   return <String, WidgetBuilder>{
-    '/':(BuildContext context) =>HomePage(),
-    'alert':(BuildContext context) =>AlertPage(),
-    'avatar':(BuildContext context) =>AvatarPage(),
-    'card':(BuildContext context) =>CardPage(),
+    '/':(context) =>HomePage(),
+    'alert':(context) =>AlertPage(),
+    'avatar':(context) =>AvatarPage(),
+    'card':(context) =>CardPage(),
   };  
 }
