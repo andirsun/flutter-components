@@ -13,15 +13,6 @@ class CardPage extends StatelessWidget {
           _cardTipo1(),
           SizedBox(height: 30.0),
           _cardTipo2(),
-          SizedBox(height: 30.0),
-           _cardTipo1(),
-          SizedBox(height: 30.0),
-          _cardTipo2(),
-          SizedBox(height: 30.0),
-           _cardTipo1(),
-          SizedBox(height: 30.0),
-          _cardTipo2(),
-          SizedBox(height: 30.0),
         ],
       ),
     );
@@ -36,7 +27,7 @@ class CardPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.photo_album,color: Colors.blue,),
             title: Text("Soy el titulo de esta tarjeta"),
-            subtitle: Text("Souy ub aslkdaslkdaslkdklasjdsakjdlkasjdalsd  aslkdjkl  alksjdlk  alksdjlk jasd a "),
+            subtitle: Text("Lorem impsun valor etae estimactedm for the sale impuns "),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -58,29 +49,34 @@ class CardPage extends StatelessWidget {
   }
 
   Widget _cardTipo2() {
-      final card = Container(
-      //clipBehavior: Clip.antiAlias,
+    final card = Container(
       child:Column(
         children: <Widget>[
           FadeInImage(
             image: NetworkImage("https://i.redd.it/1w6s6g3613f31.jpg"),
             placeholder: AssetImage("assets/barber2.gif"),
-            fadeInDuration: Duration(milliseconds: 100),
+            //fadeInDuration: Duration(milliseconds: 100),
             height: 370,
             fit: BoxFit.cover,
           ),
           Container(
             padding: EdgeInsets.all(10.0),
-            child: Text("nNO se que poner")
+            child: Text("Algun subtitulo cualquiera")
           )
         ],
       )
     );
 
     return Container(
+      // Clip RRect is for make any widget with rounded corners
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: card,
+      ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.circular(20.0),
         color: Colors.white,
+        // emulate a card shadow
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black26,
@@ -90,10 +86,7 @@ class CardPage extends StatelessWidget {
           )
         ]
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30.0),
-        child: card,
-      ),
+      
     );
   }
 }
