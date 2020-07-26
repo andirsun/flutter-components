@@ -1,34 +1,16 @@
-# Learn to pronounce Specific topics of the section In this section we will discuss topics about:
+# flutter_components
 
-* Listviews
+A new Flutter project.
 
-* ListTiles
+## Getting Started
 
-* Lists and map
+This project is a starting point for a Flutter application.
 
-* Routes
+A few resources to get you started if this is your first Flutter project:
 
-* Json towards maps
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-* Future builder
-
-* Read JSON files
-
-* Icons
-
-* Images
-
-* Avatars
-
-* Loadings
-
-* InfiniteScroll
-
-* Pull to refresh
-
-* Cards
-
-* Sliders
-
-
-## The objective of this section is to understand how Flutter documentation is used and create an application that uses many Flutter components, which will help you when you have to implement them in your applications in the future.
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
