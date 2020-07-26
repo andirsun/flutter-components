@@ -1,9 +1,8 @@
 // FLutter dependencies
 import 'package:flutter/material.dart';
-// Pages
+import 'package:flutter_components/src/pages/alert_page.dart';
+import 'package:flutter_components/src/routes/routes.dart';
 
-import 'package:componentes/src/pages/alert_page.dart';
-import 'package:componentes/src/routes/routes.dart';
 
  
 void main() => runApp(MyApp());
