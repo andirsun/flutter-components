@@ -1,11 +1,15 @@
+//FLutter dependencies 
 import 'package:flutter/material.dart';
+
 class HomePageTemp extends StatelessWidget {
-  final opciones = ["Uno","Dos","Tres"];//debe ser una propiedad final por que estoy dentro de un StatlesWidget
+  //debe ser una propiedad final por que estoy dentro de un StatlesWidget
+  final options = ["Uno","Dos","Tres"];
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Componenetes Temp'),
+        title: Text('Componenetes'),
       ),
       body:ListView(
         children: _crearItems()//retorno una lista de items 
@@ -15,7 +19,7 @@ class HomePageTemp extends StatelessWidget {
 
 
   List<Widget> _crearItems(){ //opcion 2 para una funcion que retorne una lista widgets
-    return opciones.map((item){
+    return options.map((item){
       return Column(
         children: <Widget>[
           ListTile(
