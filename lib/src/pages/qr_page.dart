@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fast_qr_reader_view/fast_qr_reader_view.dart';
+//import 'package:fast_qr_reader_view/fast_qr_reader_view.dart';
 
 class QrDetector extends StatelessWidget {
   @override
