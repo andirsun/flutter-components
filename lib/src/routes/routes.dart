@@ -6,6 +6,7 @@ import 'package:flutter_components/src/pages/avatar_page.dart';
 import 'package:flutter_components/src/pages/card_page.dart';
 import 'package:flutter_components/src/pages/home_page.dart';
 import 'package:flutter_components/src/pages/input_page.dart';
+import 'package:flutter_components/src/pages/mapbox_page.dart';
 import 'package:flutter_components/src/pages/qr_page.dart';
 // ROutes to all pages in the app
 
@@ -20,6 +21,7 @@ Map<String, WidgetBuilder> getApplicationRoutes(){
     'card':(context) =>CardPage(),
     'qr' : (context) =>QrDetector(),
     'input' : (context) =>InputsPage(),
-    'animatedContainer' : (context) => AnimatedContainerPage()
+    'animatedContainer' : (context) => AnimatedContainerPage(),
+    'mapbox' : (context) => MapBoxPage(),
   };  
 }

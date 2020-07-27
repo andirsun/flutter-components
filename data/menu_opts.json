@@ -30,6 +30,11 @@
             "ruta" : "input",
             "icon" : "input",
             "texto": "Inputs"
+        },
+        {
+            "ruta" : "mapbox",
+            "icon" : "map",
+            "texto": "MapBox"
         }
     ]
 }
