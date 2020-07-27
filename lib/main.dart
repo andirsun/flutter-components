@@ -1,5 +1,6 @@
 // FLutter dependencies
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_components/src/pages/alert_page.dart';
 import 'package:flutter_components/src/routes/routes.dart';
 
@@ -13,6 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Componentes',
       debugShowCheckedModeBanner: true,
+       localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('es', 'ES'), 
+        const Locale('en', 'US'),
+      ],
       //home:  HomePage() //cambgie el home de la app importando otra pagina 
       initialRoute: '/',
       routes:getApplicationRoutes(),
