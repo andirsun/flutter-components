@@ -17,6 +17,11 @@
             "texto": "Cards - Tarjetas"
         },
         {
+            "ruta" : "animatedContainer",
+            "icon" : "donut_large",
+            "texto": "Animated Container"
+        },
+        {
             "ruta" : "qr",
             "icon" : "folder_open",
             "texto": "Qr"

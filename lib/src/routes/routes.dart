@@ -1,6 +1,7 @@
 // Flutter dependencies
 import 'package:flutter/material.dart';
 import 'package:flutter_components/src/pages/alert_page.dart';
+import 'package:flutter_components/src/pages/animated_container_page.dart';
 import 'package:flutter_components/src/pages/avatar_page.dart';
 import 'package:flutter_components/src/pages/card_page.dart';
 import 'package:flutter_components/src/pages/home_page.dart';
@@ -16,6 +17,7 @@ Map<String, WidgetBuilder> getApplicationRoutes(){
     'alert':(context) =>AlertPage(),
     'avatar':(context) =>AvatarPage(),
     'card':(context) =>CardPage(),
-    'qr' : (context) =>QrDetector()
+    'qr' : (context) =>QrDetector(),
+    'animatedContainer' : (context) => AnimatedContainerPage()
   };  
 }
