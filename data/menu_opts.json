@@ -25,6 +25,11 @@
             "ruta" : "qr",
             "icon" : "folder_open",
             "texto": "Qr"
+        },
+        {
+            "ruta" : "input",
+            "icon" : "input",
+            "texto": "Inputs"
         }
     ]
 }
