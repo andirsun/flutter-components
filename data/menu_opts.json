@@ -35,6 +35,11 @@
             "ruta" : "mapbox",
             "icon" : "map",
             "texto": "MapBox"
+        },
+        {
+            "ruta" : "moviesApp",
+            "icon" : "map",
+            "texto": "Movies"
         }
     ]
 }
