@@ -31,6 +31,9 @@ class _MapBoxPageState extends State<MapBoxPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Hola"),
+      ),
       body: createMap(),
       floatingActionButton: createFloatingButtons(),
     );
@@ -42,15 +45,7 @@ class _MapBoxPageState extends State<MapBoxPage> {
       children: <Widget>[
         //Zoom In
         FloatingActionButton(
-          child: Icon(Icons.close),
-          onPressed: (){
-            //mapController.animateCamera(CameraUpdate.tiltTo(60));
-            Navigator.pop(context);
-
-          },
-        ),
-        //Zoom In
-        FloatingActionButton(
+          heroTag: null,
           child: Icon(Icons.zoom_in),
           onPressed: (){
             //mapController.animateCamera(CameraUpdate.tiltTo(60));
@@ -60,12 +55,14 @@ class _MapBoxPageState extends State<MapBoxPage> {
         ),
         //Zoom Out
         FloatingActionButton(
+          heroTag: null,
           child: Icon(Icons.zoom_out),
           onPressed: (){
             mapController.animateCamera(CameraUpdate.zoomOut());
           },
         ),
         FloatingActionButton(
+          heroTag: null,
           child: Icon(Icons.settings_brightness),
           onPressed: (){
 
