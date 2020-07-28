@@ -11,7 +11,7 @@ class AvatarPage extends StatelessWidget {
             padding: EdgeInsets.all(7),
             child: CircleAvatar(
               radius: 23,
-              backgroundImage: NetworkImage('https://lh3.googleusercontent.com/proxy/n7MIHF2bwZyf35AtIHaiawBpSeuNZacSyYqOUflJE_wwkSkMQ1xiQudgpUHB1CaXV1zpXMmid_jWRquY102wPvdPEDVcmlodrIDdD74y9epb2g'),
+              backgroundImage: NetworkImage('https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'),
             ),
           ),
           Container(
