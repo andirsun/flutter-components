@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+
 import 'package:mapbox_gl/mapbox_gl.dart';
+import 'dart:typed_data';
+import 'package:flutter/services.dart';
 
 
 class MapBoxPage extends StatefulWidget {
@@ -26,6 +31,25 @@ class _MapBoxPageState extends State<MapBoxPage> {
   */
   void _onMapCreated(MapboxMapController controller) {
     mapController = controller;
+    _onStyleLoaded();
+  }
+
+  void _onStyleLoaded() {
+    addImageFromAsset("myMark", "assets/custom-icon.png");
+    addImageFromUrl("networkImage", "https://via.placeholder.com/50");
+  }
+
+  /// Adds an asset image to the currently displayed style
+  Future<void> addImageFromAsset(String name, String assetName) async {
+    final ByteData bytes = await rootBundle.load(assetName);
+    final Uint8List list = bytes.buffer.asUint8List();
+    return mapController.addImage(name, list);
+  }
+
+  /// Adds a network image to the currently displayed style
+  Future<void> addImageFromUrl(String name, String url) async {
+    var response = await http.get(url);
+    return mapController.addImage(name, response.bodyBytes);
   }
 
   @override
@@ -43,6 +67,21 @@ class _MapBoxPageState extends State<MapBoxPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
+        // Set a mark
+        FloatingActionButton(
+          heroTag: null,
+          child: Icon(Icons.sentiment_neutral),
+          onPressed: (){
+            mapController.addSymbol(SymbolOptions(
+              geometry: center,
+              iconSize: 2,
+              textField: 'Arbol creado aqui',
+              iconImage: 'park-15',
+              textOffset: Offset(0, 2)
+            ));
+          },
+        ),
+        SizedBox(height: 5),
         //Zoom In
         FloatingActionButton(
           heroTag: null,
@@ -50,9 +89,9 @@ class _MapBoxPageState extends State<MapBoxPage> {
           onPressed: (){
             //mapController.animateCamera(CameraUpdate.tiltTo(60));
             mapController.animateCamera(CameraUpdate.zoomIn());
-
           },
         ),
+        SizedBox(height: 5),
         //Zoom Out
         FloatingActionButton(
           heroTag: null,
@@ -61,6 +100,7 @@ class _MapBoxPageState extends State<MapBoxPage> {
             mapController.animateCamera(CameraUpdate.zoomOut());
           },
         ),
+        SizedBox(height: 5),
         FloatingActionButton(
           heroTag: null,
           child: Icon(Icons.settings_brightness),
@@ -71,6 +111,8 @@ class _MapBoxPageState extends State<MapBoxPage> {
             }else{
               selectedStyle = darkStyle;
             }
+            // Persistent in icons
+            _onStyleLoaded();
             setState(() {});
           }
         )
