@@ -8,11 +8,7 @@ class MoviesProvider {
   String _url = 'api.themoviedb.org';
   String _language = 'es-ES';
 
-  Future<List<Movie>> getInTheaters() async {
-    final url = Uri.https(_url, '3/movie/now_playing', {
-      'api_key' : _apikey,
-      'language' :_language,
-    });
+  Future<List<Movie>> _processResponse(Uri url) async {
     //Make the request
     final response = await http.get(url);
     // Decode data from body
@@ -21,6 +17,23 @@ class MoviesProvider {
     final movies = new Movies.fromJsonList(decodedData['results']);
     //Return a movies list
     return movies.items;
+  }
+  
+  Future<List<Movie>> getInTheaters() async {
+    final url = Uri.https(_url, '3/movie/now_playing', {
+      'api_key' : _apikey,
+      'language' :_language,
+    });
+    return await _processResponse(url);
+  }
+
+  Future<List<Movie>> getPopulars() async {
+    final url = Uri.https(_url, '3/movie/popular', {
+      'api_key' : _apikey,
+      'language' :_language,
+    });
+    
+    return await _processResponse(url);
 
   }
 
