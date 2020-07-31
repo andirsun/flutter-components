@@ -19,6 +19,9 @@ class _MoviesPageState extends State<MoviesPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Fetch the popularsMovies first time
+    moviesProvider.getPopulars();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -82,11 +85,19 @@ class _MoviesPageState extends State<MoviesPage> {
             ),
           ),
           SizedBox(height: 5,),
-          FutureBuilder(
-            future : moviesProvider.getPopulars(),
+          StreamBuilder(
+            stream: moviesProvider.popularsStrem,
             builder: (context,AsyncSnapshot<List<Movie>> snapshot){
               if(snapshot.hasData){
-                return MoviesCarousel(movies: snapshot.data);
+                return MoviesCarousel(
+                  movies: snapshot.data,
+                  /*
+                    This function is sended as parameter to the sin widget
+                    and with this definition the widget can get more data
+                    with using the movies provider restriction
+                  */
+                  fetchNextData: moviesProvider.getPopulars,
+                );
               }else {
                 return Center(child: CircularProgressIndicator());
               }

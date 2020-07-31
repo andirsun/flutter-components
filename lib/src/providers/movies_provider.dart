@@ -10,9 +10,11 @@ class MoviesProvider {
   String _language = 'es-ES';
 
   int _popularsPage = 0;
+  bool fetchingData = false;
 
   List<Movie> _populars = new List();
 
+  /* Begin of new movies stream */
   final _popularsStreamController = StreamController<List<Movie>>.broadcast();
   // Add Movies to the stream
   Function(List<Movie>) get popularsSink => _popularsStreamController.sink.add;
@@ -21,6 +23,7 @@ class MoviesProvider {
   void disposeStreams(){
     _popularsStreamController?.close();
   }
+  /* End of new movies stream */
 
   Future<List<Movie>> _processResponse(Uri url) async {
     //Make the request
@@ -42,6 +45,10 @@ class MoviesProvider {
   }
 
   Future<List<Movie>> getPopulars() async {
+    // if the request is already in progress avoid make multiple requests
+    if(fetchingData) return[];
+    // begin the fetching data task
+    fetchingData = true;
     // every time this function is call the query page will increase
     _popularsPage++;
     final url = Uri.https(_url, '3/movie/popular', {
@@ -49,15 +56,14 @@ class MoviesProvider {
       'language' :_language,
       'page' : _popularsPage.toString()
     });
-
+    // Make request
     final resp =  await _processResponse(url);
-
+    //Add new movies to the full movie list
     _populars.addAll(resp);
     // Adding the movies to the stream
     popularsSink(_populars);
-    
+    // end the fetching data task
+    fetchingData = false;
     return resp; 
-
   }
-
 }
