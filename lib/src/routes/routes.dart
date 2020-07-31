@@ -9,6 +9,7 @@ import 'package:flutter_components/src/pages/card_page.dart';
 import 'package:flutter_components/src/pages/home_page.dart';
 import 'package:flutter_components/src/pages/input_page.dart';
 import 'package:flutter_components/src/pages/mapbox_page.dart';
+import 'package:flutter_components/src/pages/movie_detail.dart';
 import 'package:flutter_components/src/pages/movies_app.dart';
 import 'package:flutter_components/src/pages/qr_page.dart';
 
@@ -25,6 +26,7 @@ Map<String, WidgetBuilder> getApplicationRoutes(){
     'input' : (context) =>InputsPage(),
     'animatedContainer' : (context) => AnimatedContainerPage(),
     'mapbox' : (context) => MapBoxPage(),
-    'moviesApp' : (context) => MoviesPage()
+    'moviesApp' : (context) => MoviesPage(),
+    'movieDetail' : (context) => MovieDetail(),
   };  
 }

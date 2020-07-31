@@ -7,7 +7,7 @@ class MoviesCarousel extends StatelessWidget {
   final List<Movie> movies;
   final Function fetchNextData;
   MoviesCarousel({@required this.movies, @required this.fetchNextData});
-  
+
   final _pageController = new PageController(
     initialPage: 1,
     viewportFraction: 0.3
@@ -44,7 +44,7 @@ class MoviesCarousel extends StatelessWidget {
     This functions render the widget of a single card needed
   */
   Widget _createSingleCard(context, Movie movie){
-    return Container(
+    final movieCard = Container(
       margin: EdgeInsets.only(right: 15),
       child: Column(
         children: <Widget>[
@@ -68,6 +68,12 @@ class MoviesCarousel extends StatelessWidget {
           ),
         ],
       ),
+    );
+    return GestureDetector(
+      child: movieCard,
+      onTap: (){
+        Navigator.pushNamed(context, 'movieDetail',arguments: movie);
+      },
     );
   }
 }
