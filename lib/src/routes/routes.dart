@@ -1,5 +1,7 @@
 // Flutter dependencies
 import 'package:flutter/material.dart';
+
+// Pages
 import 'package:flutter_components/src/pages/alert_page.dart';
 import 'package:flutter_components/src/pages/animated_container_page.dart';
 import 'package:flutter_components/src/pages/avatar_page.dart';
@@ -9,7 +11,6 @@ import 'package:flutter_components/src/pages/input_page.dart';
 import 'package:flutter_components/src/pages/mapbox_page.dart';
 import 'package:flutter_components/src/pages/movies_app.dart';
 import 'package:flutter_components/src/pages/qr_page.dart';
-// ROutes to all pages in the app
 
 
 
@@ -20,7 +21,7 @@ Map<String, WidgetBuilder> getApplicationRoutes(){
     'alert':(context) =>AlertPage(),
     'avatar':(context) =>AvatarPage(),
     'card':(context) =>CardPage(),
-    'qr' : (context) =>QrDetector(),
+    'qr' : (context) =>BarCodeScanner(),
     'input' : (context) =>InputsPage(),
     'animatedContainer' : (context) => AnimatedContainerPage(),
     'mapbox' : (context) => MapBoxPage(),
