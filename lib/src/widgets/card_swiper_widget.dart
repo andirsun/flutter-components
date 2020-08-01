@@ -26,7 +26,7 @@ class CardSwiper extends StatelessWidget {
           movies[index].uniqueId = '${movies[index].id}-card';
 
           return Hero(
-            tag: movies[index].id,
+            tag: movies[index].uniqueId,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: GestureDetector(
