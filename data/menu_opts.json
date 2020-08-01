@@ -38,7 +38,7 @@
         },
         {
             "ruta" : "moviesApp",
-            "icon" : "map",
+            "icon" : "movie",
             "texto": "Movies"
         }
     ]
