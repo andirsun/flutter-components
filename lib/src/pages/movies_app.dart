@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_components/src/models/movie_model.dart';
 import 'package:flutter_components/src/providers/movies_provider.dart';
+import 'package:flutter_components/src/search/search_delegate.dart';
 import 'package:flutter_components/src/widgets/card_swiper_widget.dart';
 import 'package:flutter_components/src/widgets/movie_horizontal.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +36,13 @@ class _MoviesPageState extends State<MoviesPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: (){}
+            onPressed: (){
+              showSearch(
+                context: context,
+                delegate: DataSearch(),
+                //query: 'movie name'
+              );
+            }
           )
         ],
       ),
