@@ -44,12 +44,17 @@ class MoviesCarousel extends StatelessWidget {
     This functions render the widget of a single card needed
   */
   Widget _createSingleCard(context, Movie movie){
+
+    movie.uniqueId = '${movie.id}-poster';
+
+
     final movieCard = Container(
       margin: EdgeInsets.only(right: 15),
       child: Column(
         children: <Widget>[
+
           Hero(
-            tag: movie.id,
+            tag: movie.uniqueId,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(
